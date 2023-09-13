@@ -10,7 +10,7 @@ FromDir = ''
 ToDir = ''
 
 
-def ChackAndMakeDir(date):
+def CheckAndMakeDir(date):
     dt = datetime.datetime.strptime(date, '%Y/%m/%d')
     datedir = dt.strftime('%Y/%m/%d')
     if os.path.exists(ToDir + datedir):
@@ -46,4 +46,4 @@ if __name__ == '__main__':
     else:
         print('引数が多すぎます')
         sys.exit(1)
-    CopyFiles(ChackAndMakeDir(date), name)
+    CopyFiles(CheckAndMakeDir(date), name)
