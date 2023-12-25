@@ -27,8 +27,11 @@ def CopyFiles(datedir, newname):
     fromfiles.sort()
     for count, fromfile in enumerate(fromfiles):
         _, ext = os.path.splitext(fromfile)
-        tofile = newname + '-' + format(count + 1, '02') + ext
-        shutil.copy2(FromDir + fromfile, ToDir + datedir + '/' + tofile)
+        if 'mp4' in ext:
+            pass
+        else:
+            tofile = newname + '-' + format(count + 1, '02') + ext
+            shutil.copy2(FromDir + fromfile, ToDir + datedir + '/' + tofile)
 
 
 if __name__ == '__main__':
