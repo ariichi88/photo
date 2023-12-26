@@ -1,6 +1,5 @@
 # photo
-個人的に使用するスクリプト  
-DropboxのカメラアップロードからShotwellが監視するディレクトリへ名前を変えながらコピーする。  
+Dropboxのカメラアップロードから写真(jpg)をShotwellが監視するディレクトリへ名前を変えながらコピーする。  
 
 ## 前提条件
 Ubuntu上でDropboxとShotwellを使用  
