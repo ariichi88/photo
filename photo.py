@@ -11,18 +11,15 @@ ToDir = ''
 
 
 def CheckAndMakeDir(date):
-    dt = datetime.datetime.strptime(date, '%Y/%m/%d')
-    datedir = dt.strftime('%Y/%m/%d')
-    if os.path.exists(ToDir + datedir):
+    if os.path.exists(ToDir + date):
         print('すでにあるディレクトリは選択できません')
         sys.exit(1)
     else:
-        os.makedirs(ToDir + datedir)
-        return datedir
+        os.makedirs(ToDir + date)
 
 
-def CopyFiles(datedir, newname):
-    datestr = datedir.replace('/', '-')
+def CopyFiles(date, newname):
+    datestr = date.replace('/', '-')
     fromfiles = [f for f in os.listdir(FromDir) if datestr in f]
     fromfiles.sort()
     for count, fromfile in enumerate(fromfiles):
@@ -31,7 +28,7 @@ def CopyFiles(datedir, newname):
             pass
         else:
             tofile = newname + '-' + format(count + 1, '02') + ext
-            shutil.copy2(FromDir + fromfile, ToDir + datedir + '/' + tofile)
+            shutil.copy2(FromDir + fromfile, ToDir + date + '/' + tofile)
 
 
 if __name__ == '__main__':
@@ -49,4 +46,5 @@ if __name__ == '__main__':
     else:
         print('引数が多すぎます')
         sys.exit(1)
-    CopyFiles(CheckAndMakeDir(date), name)
+    CheckAndMakeDir(date)
+    CopyFiles(date, name)
