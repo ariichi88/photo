@@ -12,7 +12,7 @@ ToDir = ''
 
 def CheckAndMakeDir(date):
     if os.path.exists(ToDir + date):
-        print('すでにあるディレクトリは選択できません')
+        print('ディレクトリ', ToDir, date, 'がすでに存在しています。', sep='')
         sys.exit(1)
     else:
         os.makedirs(ToDir + date)
@@ -33,10 +33,7 @@ def CopyFiles(date, newname):
 
 if __name__ == '__main__':
     arg = sys.argv
-    if len(arg) == 1:
-        print('引数がありません')
-        sys.exit(1)
-    elif len(arg) == 2:
+    if len(arg) == 2:
         dt = datetime.datetime.now()
         date = dt.strftime('%Y/%m/%d')
         name = arg[1]
@@ -44,7 +41,8 @@ if __name__ == '__main__':
         date = arg[1]
         name = arg[2]
     else:
-        print('引数が多すぎます')
+        print('使用法　photo.py [date] newname')
+        print('日付のフォーマットyyyy/mm/dd')
         sys.exit(1)
     CheckAndMakeDir(date)
     CopyFiles(date, name)
