@@ -10,7 +10,7 @@ Dropbox カメラアップロードを使用してください
 
 ## FromDirとToDirの設定例
 FromDir = '/home/username/Dropbox/カメラアップロード'  
-ToDir = '/home/username/Photo'  
+ToDir = '/home/username/Photo/'  
 
 ## 使い方
 photo.py [日付] 新しい名前  
