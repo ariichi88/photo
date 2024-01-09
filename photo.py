@@ -18,7 +18,7 @@ def CheckAndMakeDir(date):
         os.makedirs(ToDir + date)
 
 
-def CopyFiles(date, newname):
+def CopyJpegFiles(date, newname):
     datestr = date.replace('/', '-')
     fromfiles = [f for f in os.listdir(FromDir) if datestr in f]
     fromfiles.sort()
@@ -45,4 +45,4 @@ if __name__ == '__main__':
         print('日付のフォーマットyyyy/mm/dd')
         sys.exit(1)
     CheckAndMakeDir(date)
-    CopyFiles(date, name)
+    CopyJpegFiles(date, name)
