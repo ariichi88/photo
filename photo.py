@@ -5,9 +5,18 @@ import os
 import sys
 import datetime
 import shutil
+import re
 
 FromDir = ''
 ToDir = ''
+
+
+def CheckDateFormat(date):
+    res = re.match(r'20[0-9][0-9]/[0-1][0-9]/[0-3][0-9]', date)
+    if res:
+        return True
+    else:
+        return False
 
 
 def CheckAndMakeDir(date):
@@ -44,5 +53,10 @@ if __name__ == '__main__':
         print('使用法　photo.py [date] newname')
         print('日付のフォーマットyyyy/mm/dd')
         sys.exit(1)
-    CheckAndMakeDir(date)
-    CopyJpegFiles(date, name)
+    if CheckDateFormat(date):
+        CheckAndMakeDir(date)
+        CopyJpegFiles(date, name)
+    else:
+        print('日付のフォーマットが違います')
+        print('フォーマット　yyyy/mm/dd')
+        sys.exit(1)
