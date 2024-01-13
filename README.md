@@ -9,6 +9,20 @@ Ubuntu上でDropboxとShotwellを使用
 Shotwell 設定で「ライブラリのディレクトリで新規ファイルを監視する」にチェックを入れてください  
 Dropbox カメラアップロードを使用してください  
 
+## インストール
+GitHubからクローン  
+```
+git clone git@github.com:ariichi88/photo.git
+```
+photo.pyをパスの等っている場所にコピー 
+```
+cp photo.py /hoge/fuga
+```
+実行権（パーミッション）の変更 
+```
+chmod +x photo.py
+```
+
 ## FromDirとToDirの設定例
 FromDir = '/home/username/Dropbox/カメラアップロード/'  
 ToDir = '/home/username/Photo/'  
