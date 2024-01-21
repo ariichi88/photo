@@ -17,6 +17,11 @@ photo.pyをパスの等っている場所にコピー
 ```
 cp photo.py /hoge/fuga
 ```
+FromDirとToDirの設定  
+photo.pyをエディタで開きFromDirとToDirを設定する  
+```
+vim photo.py
+```
 実行権（パーミッション）の変更 
 ```
 chmod +x photo.py
