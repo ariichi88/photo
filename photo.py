@@ -34,9 +34,7 @@ def CopyJpegFiles(date, newname):
     count = 1
     for _, fromfile in enumerate(fromfiles):
         _, ext = os.path.splitext(fromfile)
-        if 'mp4' in ext:
-            pass
-        else:
+        if 'jpg' in ext:
             tofile = newname + '-' + format(count, '02') + ext
             shutil.copy2(FromDir + fromfile, ToDir + date + '/' + tofile)
             count = count + 1
