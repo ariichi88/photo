@@ -1,6 +1,9 @@
 # photo
 Dropboxのカメラアップロードから写真(jpg)をShotwellが監視するディレクトリへ名前を変えながらコピーする。  
 
+## pythonのバージョン
+3.10.12
+
 ## 前提条件
 Ubuntu上でDropboxとShotwellを使用  
 
