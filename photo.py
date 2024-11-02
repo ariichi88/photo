@@ -7,8 +7,8 @@ import datetime
 import shutil
 import re
 
-FromDir = ''
-ToDir = ''
+FromDir = '/home/username/Dropbox/カメラアップロード/'
+ToDir = '/home/username/Photo/'
 
 
 def CheckDateFormat(date):
