@@ -36,7 +36,7 @@ def CopyJpegFiles(date, newname):
         _, ext = os.path.splitext(fromfile)
         if 'jpg' in ext:
             tofile = newname + '-' + format(count, '02') + ext
-            shutil.copy2(FromDir + fromfile, ToDir + date + '/' + tofile)
+            shutil.copy2(FromDir + fromfile, ToDir + date + tofile)
             count = count + 1
 
 
