@@ -22,7 +22,7 @@ def CheckDateFormat(date):
 
 def CheckAndMakeDir(date):
     if os.path.exists(ToDir + date):
-        print('ディレクトリ', ToDir, date, 'がすでに存在しています。', sep='')
+        print('すでにインポート済みです', sep='')
         sys.exit(1)
     else:
         os.makedirs(ToDir + date)
