@@ -8,11 +8,11 @@ import datetime
 import shutil
 import re
 
-FromDir = '/home/username/Dropbox/カメラアップロード/'
-ToDir = '/home/username/Photo/'
+FROM_DIR = '/home/username/Dropbox/カメラアップロード/'
+TO_DIR = '/home/username/Photo/'
 
 
-def CheckDateFormat(date):
+def check_date_format(date):
     res = re.match(r'20[0-9][0-9]/[0-1][0-9]/[0-3][0-9]', date)
     if res:
         return True
@@ -20,29 +20,30 @@ def CheckDateFormat(date):
         return False
 
 
-def CheckAndMakeDir(date):
-    if os.path.exists(ToDir + date):
+def check_and_make_dir(date):
+    if os.path.exists(TO_DIR + date):
         print('すでにインポート済みです', sep='')
         sys.exit(1)
     else:
-        os.makedirs(ToDir + date)
+        os.makedirs(TO_DIR + date)
 
 
-def CopyJpegFiles(date, newname):
-    datestr = date.replace('/', '-')
-    fromfiles = [f for f in os.listdir(FromDir) if datestr in f]
-    fromfiles.sort()
+def copy_jpg_files(date, new_name):
+    date_str = date.replace('/', '-')
+    from_files = [f for f in os.listdir(FROM_DIR) if date_str in f]
+    from_files.sort()
     count = 1
-    for _, fromfile in enumerate(fromfiles):
-        _, ext = os.path.splitext(fromfile)
+    for _, from_file in enumerate(from_files):
+        _, ext = os.path.splitext(from_file)
         if 'jpg' in ext:
-            tofile = newname + '-' + format(count, '02') + ext
-            shutil.copy2(FromDir + fromfile, ToDir + date + tofile)
+            to_file = new_name + '-' + format(count, '02') + ext
+            shutil.copy2(FROM_DIR + from_file, TO_DIR + date + to_file)
             count = count + 1
 
 
 if __name__ == '__main__':
     arg = sys.argv
+
     if len(arg) == 2:
         dt = datetime.datetime.now()
         date = dt.strftime('%Y/%m/%d')
@@ -54,9 +55,10 @@ if __name__ == '__main__':
         print('使用法　photo.py [date] newname')
         print('日付のフォーマットyyyy/mm/dd')
         sys.exit(1)
-    if CheckDateFormat(date):
-        CheckAndMakeDir(date)
-        CopyJpegFiles(date, name)
+
+    if check_date_format(date):
+        check_and_make_dir(date)
+        copy_jpg_files(date, name)
     else:
         print('日付のフォーマットが違います')
         print('フォーマット　yyyy/mm/dd')
