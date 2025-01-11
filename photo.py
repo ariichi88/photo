@@ -28,7 +28,7 @@ def check_and_make_dir(date):
         os.makedirs(TO_DIR + date)
 
 
-def copy_jpg_files(date, new_name):
+def copy_jpg_files(date, name):
     date_str = date.replace('/', '-')
     from_files = [f for f in os.listdir(FROM_DIR) if date_str in f]
     from_files.sort()
@@ -36,7 +36,7 @@ def copy_jpg_files(date, new_name):
     for _, from_file in enumerate(from_files):
         _, ext = os.path.splitext(from_file)
         if 'jpg' in ext:
-            to_file = new_name + '-' + format(count, '02') + ext
+            to_file = name + '-' + format(count, '02') + ext
             shutil.copy2(FROM_DIR + from_file, TO_DIR + date + to_file)
             count = count + 1
 
