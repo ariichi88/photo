@@ -20,17 +20,17 @@ photo.pyをパスの等っている場所にコピー
 ```
 cp photo.py /hoge/fuga
 ```
-FromDirとToDirの設定  
-photo.pyをエディタで開きFromDirとToDirを設定する  
+FROM\_DIRとTO\_DIRの設定  
+photo.pyをエディタで開きFROM\_DIRとTO\_DIRを設定する  
 
 実行権（パーミッション）の変更 
 ```
 chmod +x photo.py
 ```
 
-## FromDirとToDirの設定例
-FromDir = '/home/*username*/Dropbox/カメラアップロード/'  
-ToDir = '/home/*username*/Photo/'  
+## FROM\_DIRとTO\_DIRの設定例
+FROM\_DIR = '/home/*username*/Dropbox/カメラアップロード/'  
+TO\_DIR = '/home/*username*/Photo/'  
 
 ## 使い方
 photo.py [日付] 新しい名前  
