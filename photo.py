@@ -37,7 +37,7 @@ def copy_jpg_files(date, name):
         _, ext = os.path.splitext(from_file)
         if 'jpg' in ext:
             to_file = name + '-' + format(count, '02') + ext
-            shutil.copy2(FROM_DIR + from_file, TO_DIR + date + to_file)
+            shutil.copy2(FROM_DIR + from_file, TO_DIR + date + '/' + to_file)
             count = count + 1
 
 
